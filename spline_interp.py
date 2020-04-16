@@ -1,3 +1,12 @@
+# ==========================================================================================================================
+# Title: spline_interp.py
+# Author: Jerry Paul Magaña
+# Contact: jerrypaulmagana@gmail.com
+# Description: Code snippet implements an algorithm that determins the coeeficients for each spline needed to interpolate a 
+# fixed set of points. Coefficients returned as 2d array, where each column is a different coefficient, and each row is a 
+# different spline.
+# ==========================================================================================================================
+
 class natSpline: # Define class for Natural Spline
     def __init__(self,xlist,ylist): # Constructor accepts two lists for x and y coordinates, respectively.
         if len(xlist) != len(ylist): # Checks to make sure the number of x coordinates and y coordinates are the same.
