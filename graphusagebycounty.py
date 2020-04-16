@@ -1,3 +1,12 @@
+# ==========================================================================================================================
+# Title: graphusagebycounty.py
+# Author: Jerry Paul Magaña
+# Contact: jerrypaulmagana@gmail.com
+# Description: A small script used to pull specific information from an Excel spreadsheet, do some basic calculations on the 
+# columns pulled, and created a box plot of the data.
+# ==========================================================================================================================
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
