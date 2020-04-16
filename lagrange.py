@@ -1,3 +1,13 @@
+# ==========================================================================================================================
+# Title: lagrange.py
+# Author: Jerry Paul Magaña
+# Contact: jerrypaulmagana@gmail.com
+# Description: Implements a version of the Lagrange Interpolation algorithm. Used to get coefficients for interpolating
+# polynomial.
+# ==========================================================================================================================
+
+# NOTICE: Code snippet is in alpha, and still needs debugging. Use at your own risk.
+
 import numpy as np
 import matplotlib.pyplot as plt
 
