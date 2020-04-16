@@ -1,7 +1,15 @@
+# ==========================================================================================================================
+# Title: divdif_interpolation.py
+# Author: Jerry Paul Magaña
+# Contact: jerrypaulmagana@gmail.com
+# Description: A rough code snippet that implements two mathematical algorithms (Newton's Divided Difference & Horner's 
+# Nestled Polynomial Expansion) used to produce a polynomial that interpolates a fixed number of (x,y) cartesian points.
+# ==========================================================================================================================
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-def horners(constants,t,b):
+def horners(constants,t,b): # Implements Horner's Method for nestled polynomials
     k = len(constants)
     y = constants[k-1]
     for j in range(1,k):
@@ -18,7 +26,7 @@ def horners(constants,t,b):
     return y
 
         
-def divDif(xpts,ypts):
+def divDif(xpts,ypts): # Implements Newton's Divided Difference method for determining coefficients of interpolating polynomials
     if len(xpts) != len(ypts):
         print('Error: Mismatched dimensions. Check input and run again.')
         return
@@ -29,7 +37,7 @@ def divDif(xpts,ypts):
         const = []
         for j in range(0,n):
             triangle[j,0] = ypts[j]
-        for i in range(1,n):
+        for i in range(1,n): # Nestled four loop creates lower triangular matrix of divided differences.  
             for j in range(0,n-i):
                 triangle[j,i] = np.divide(
                                     np.subtract(
@@ -38,11 +46,13 @@ def divDif(xpts,ypts):
                                     np.subtract(
                                         xpts[j+i],
                                         xpts[j]))
-        for k in range(0,n):
+        for k in range(0,n): # Appends the appropriate divided difference for coefficient to 'const' (pivot point of each column in 'triangle').
             c = triangle[0,k]
             const.append(c)
     return const, triangle
 
+# Everything below this line is a test implementation which utilizes the above functions. If you are incorporating this code
+# into your own work, the rest should be changed to fit your needs, or otherwise removed.
 
 t = np.linspace(-3,6,1000)
 x = [1,1.01,1.02,1.03]
